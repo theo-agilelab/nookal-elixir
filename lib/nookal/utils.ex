@@ -40,6 +40,12 @@ defmodule Nookal.Utils do
     {:ok, value}
   end
 
+  def cast(value, :date) when is_binary(value) do
+    with {:error, _reason} <- Date.from_iso8601(value) do
+      cast_error(value, :date)
+    end
+  end
+
   def cast(value, type), do: cast_error(value, type)
 
   @compile {:inline, [cast_error: 2]}
