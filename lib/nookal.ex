@@ -227,30 +227,30 @@ defmodule Nookal do
   end
 
   @doc """
-    Get documents in a page.
+  Get documents in a page.
 
-    Please check [API specs](https://api.nookal.com/dev/objects/files) for more information.
+  Please check [API specs](https://api.nookal.com/dev/objects/files) for more information.
 
-    ## Examples
+  ## Examples
 
-      iex> Nookal.get_documents(%{"patient_id" => 1, "page" => 1, "page_length" => 1})
-      %Nookal.Page{
-        current: 1,
-        items: [
-          %Nookal.Document{
-            case_id: nil,
-            extension: "jpg",
-            id: "file_5d6e2ab9187b08.77130737",
-            metadata: nil,
-            mime: "image/jpeg",
-            name: "profile_image",
-            patient_id: 1,
-            status: true,
-            url: "https://example.com/image.png"
-          }
-        ],
-        next: 2
-      }
+    iex> Nookal.get_documents(%{"patient_id" => 1, "page" => 1, "page_length" => 1})
+    %Nookal.Page{
+      current: 1,
+      items: [
+        %Nookal.Document{
+          case_id: nil,
+          extension: "jpg",
+          id: "file_5d6e2ab9187b08.77130737",
+          metadata: nil,
+          mime: "image/jpeg",
+          name: "profile_image",
+          patient_id: 1,
+          status: true,
+          url: "https://example.com/image.png"
+        }
+      ],
+      next: 2
+    }
   """
 
   @spec get_documents(map()) :: {:ok, Nookal.Page.t(Nookal.Document.t())} | {:error, term()}
@@ -265,11 +265,11 @@ defmodule Nookal do
   end
 
   @doc """
-    Get file URL.
+  Get file URL.
 
-    Please check [API specs](https://api.nookal.com/dev/objects/files) for more information.
+  Please check [API specs](https://api.nookal.com/dev/objects/files) for more information.
 
-    ## Examples
+  ## Examples
 
       iex> Nookal.get_file_url(%{"patient_id" => 1, "file_id" => "file_5d6e2ab9187b08.77130737"})
       "https:example.com/image.png"
