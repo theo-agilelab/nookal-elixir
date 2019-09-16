@@ -41,16 +41,6 @@ defmodule Nookal.Document do
   end
 
   def new(payload) do
-    with {:ok, document} <- extract_fields(@mapping, payload, %__MODULE__{}) do
-      document =
-        document
-        |> Map.replace!(:url, new_url(payload))
-
-      {:ok, document}
-    end
-  end
-
-  def new_url(document) do
-    Nookal.get_file_url(%{"patient_id" => document["patientID"], "file_id" => document["ID"]})
+    extract_fields(@mapping, payload, %__MODULE__{})
   end
 end
