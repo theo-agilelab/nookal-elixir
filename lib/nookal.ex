@@ -281,7 +281,7 @@ defmodule Nookal do
   def get_file_url(params \\ %{}) do
     with {:ok, payload} <- @client.dispatch("/getFileUrl", params),
          {:ok, raw_url} <- fetch_results(payload, "url") do
-      raw_url
+      {:ok, raw_url}
     end
   end
 
